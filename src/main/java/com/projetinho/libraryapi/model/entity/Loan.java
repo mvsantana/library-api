@@ -1,35 +1,35 @@
 package com.projetinho.libraryapi.model.entity;
 
-import lombok.Data;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
-@Table
-
-
-public class Book {
+public class Loan {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
-    private String title;
+    @Column(length = 100)
+    private String customer;
+
+    @JoinColumn(name = "id_book")
+    @ManyToOne
+    private Book book;
 
     @Column
-    private String author;
+    private LocalDate loanDate;
 
     @Column
-    private String isbn;
-
+    private Boolean returned;
 
 }

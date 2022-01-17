@@ -3,8 +3,13 @@ package com.projetinho.libraryapi.model.repository;
 import com.projetinho.libraryapi.model.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BookRepository extends JpaRepository <Book, Long>{
+import java.util.Optional;
+
+public interface BookRepository extends JpaRepository<Book, Long> {
+
 
 
     boolean existsByIsbn(String isbn);
+
+    Optional<Book> findByIsbn(String isbn);
 }
