@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public abstract class BookServiceImpl implements BookService {
+public class BookServiceImpl implements BookService {
 
     private final BookRepository repository;
 
